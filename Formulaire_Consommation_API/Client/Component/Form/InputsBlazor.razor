@@ -1,0 +1,39 @@
+﻿@page "/InputsBlazor"
+@inherits InputsBlazorBase
+<h3>Les inputs</h3>
+<EditForm Model="FormData">
+    <!--Checkbox : ne peut pas être bindé sur un élément nullable -->
+    <InputCheckbox @bind-Value=FormData.SomeBooleanProperty /><br />
+    <!-- Calendrier: input type='date'. Peut être bindé sur une élément nullable
+        MAIS il faut vérifier la compatibilité avec les navigateurs-->
+    <InputDate @bind-Value=FormData.SomeDateTimeProperty
+               @bind-Value:format="dd/MM/yyyy"
+               ParsingErrorMessage="Doit être une date" /><br />
+
+    <!-- Peut être lié à n'importe quel format numérique. Si la valeur ne peut pas
+        être parsée -> Erreur validation.'-->
+    <InputNumber @bind-Value=FormData.SomeIntegerProperty
+                 ParsingErrorMessage="Doit être un entier" /><br />
+    <InputNumber @bind-Value=FormData.SomeDecimalProperty
+                 ParsingErrorMessage="Doit être un décimal" /><br />
+    <!-- Champs sans Type, nous pouvons donc ajouter type='password',
+         type="color",...-->
+    <InputText @bind-Value=FormData.SomeStringProperty /><br />
+    <InputText type="password" @bind-Value=FormData.SomeStringProperty /><br />
+    <InputText type="Color" @bind-Value=FormData.SomeStringProperty /><br />
+
+    <!--TextArea -->
+    <InputTextArea cols="5" @bind-Value=FormData.SomeMultiLineStringProperty /><br />
+
+    <!--Select : Basé sur une énumération, la sélection se portera sur la
+        valeur de la propriété Même si ce n'est pas la première'-->
+    <InputSelect @bind-Value=FormData.SomeSelectProperty>
+        <option value="Pending">Pending</option>
+        <option value="Active">Active</option>
+        <option value="Suspended">Suspended</option>
+    </InputSelect>
+    <br />
+    <InputColor @bind-Value="FormData.SomeColor"  ></InputColor>
+    <br />
+    Couleur Choisie : @ColorHEx
+</EditForm>

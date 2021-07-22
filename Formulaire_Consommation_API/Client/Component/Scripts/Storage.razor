@@ -1,0 +1,21 @@
+﻿@page "/Storage"
+@inherits StorageBase
+<h3>Storage</h3>
+<EditForm Model="Data">
+    Clé <input type="text" @bind-value="Data.Key" />
+    <br />
+    Valeur <input type="text" @bind-value="Data.Value" />
+    <button @onclick="AddToStorage">Ajout</button>
+</EditForm>
+<hr />
+<EditForm Model="Data">
+    Récupérer la valeur : <input type="text" value="@Data.Key" />
+    <button @onclick="()=>GetData(Data.Key)">Recup</button>
+</EditForm>
+<div class="alert alert-primary">
+    @InfoStorage
+</div>
+<hr />
+<div class="alert alert-info">
+    DEBUG : @Message
+</div>

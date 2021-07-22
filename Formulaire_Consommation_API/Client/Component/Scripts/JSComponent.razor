@@ -1,0 +1,17 @@
+﻿@page "/JsSample"
+@inherits JSComponentBase
+<h3>JSComponent</h3>
+
+<button @onclick="SendInfo">Bienvenue</button>
+
+<button onclick="SendToNet(@System.Text.Json.JsonSerializer.Serialize(dotNetReference))">Message</button>
+
+
+
+<h1>Text received</h1>
+<ul>
+    @foreach (string text in Messages)
+    {
+        <li>@text</li>
+    }
+</ul>

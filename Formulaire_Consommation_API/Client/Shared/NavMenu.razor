@@ -1,0 +1,62 @@
+﻿<div class="top-row pl-4 navbar navbar-dark">
+    <a class="navbar-brand" href="">Forms - API <br />
+    - Auth</a>
+    <button class="navbar-toggler" @onclick="ToggleNavMenu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</div>
+
+<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+    <ul class="nav flex-column">
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="oi oi-list-rich" aria-hidden="true"></span> Consommation API
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="Register">
+                <span class="oi oi-pencil" aria-hidden="true"></span> Inscription
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="Login">
+                <span class="oi oi-person" aria-hidden="true"></span> Login
+            </NavLink>
+        </li>
+
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="Secure">
+                <span class="oi oi-lock-locked" aria-hidden="true"></span> Zone Membre
+            </NavLink>
+        </li>
+        <li>
+            <hr style="color:white" />
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="InputsBlazor">
+                <span class="oi oi-task" aria-hidden="true"></span> Les inputs
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="JsSample">
+                <span class="oi oi-bolt" aria-hidden="true"></span> Js Interop
+            </NavLink>
+        </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="Storage">
+                <span class="oi oi-box" aria-hidden="true"></span> Storage
+            </NavLink>
+        </li>
+    </ul>
+</div>
+
+@code {
+    private bool collapseNavMenu = true;
+
+    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
+
+    private void ToggleNavMenu()
+    {
+        collapseNavMenu = !collapseNavMenu;
+    }
+}

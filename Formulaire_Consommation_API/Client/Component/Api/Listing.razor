@@ -1,0 +1,28 @@
+﻿@inherits ListingBase
+<h3>Mes utilisateurs</h3>
+@if (Users == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Password</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var u in Users)
+            {
+            <tr>
+                <td>@u.Email</td>
+
+                <td>@u.Password</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+}
+
