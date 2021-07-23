@@ -1,0 +1,10 @@
+﻿@inherits AlertBase
+
+@foreach (var alert in alerts)
+{
+<div class="@CssClass(alert)">
+    <a class="close" @onclick="@(() => RemoveAlert(alert))">&times;</a>
+    <span>@alert.Message</span>
+</div>}
+
+ 

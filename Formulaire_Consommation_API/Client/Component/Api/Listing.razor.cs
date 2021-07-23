@@ -1,4 +1,5 @@
-﻿using Formulaire_Consommation_API.Shared;
+﻿using Formulaire_Consommation_API.Client.Services.Interfaces;
+using Formulaire_Consommation_API.Shared;
 using Microsoft.AspNetCore.Components;
 using System;
 using System.Collections.Generic; 
@@ -16,6 +17,8 @@ namespace Formulaire_Consommation_API.Client.Component.Api
         [Inject]
         private HttpClient Http { get; set; }
 
+        [Inject]
+        private ILocalStorageService local { get; set; }
         
         protected List<UtilisateurModel> Users;
 
@@ -24,6 +27,7 @@ namespace Formulaire_Consommation_API.Client.Component.Api
         {
 
              Users = await Http.GetFromJsonAsync<List<UtilisateurModel>>("api/Users");
+             
             //try
             //{
             //    HttpResponseMessage mess = await Http.GetAsync("api/Userzs");

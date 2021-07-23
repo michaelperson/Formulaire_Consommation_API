@@ -1,0 +1,16 @@
+﻿@page "/secure/Member"
+@inherits MemberBase
+@attribute [Authorize]
+<h3>Bienvenue  </h3>
+<EditForm Model="@Model" OnValidSubmit="OnValidSubmit">
+    <DataAnnotationsValidator />
+    <InputText type="password" @bind-Value="@Model.Password"></InputText>
+    <ValidationMessage For="@(() => Model.Password)" />
+    <button type="submit">Changer</button>
+</EditForm>
+
+<NavLink class="nav-link" href="secure/Logout">
+    <span class="oi oi-lock-locked" aria-hidden="true"></span> Logout
+</NavLink>
+
+

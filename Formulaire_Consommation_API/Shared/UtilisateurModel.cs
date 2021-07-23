@@ -9,7 +9,7 @@ namespace Formulaire_Consommation_API.Shared
 {
     public class UtilisateurModel
     {       
-        private string _email, _password;
+        private string _email, _password,_token;
 
         [Required]
         [EmailAddress]
@@ -40,5 +40,7 @@ namespace Formulaire_Consommation_API.Shared
                 _password = value;
             }
         }
+   
+        public string Token { get { return _token; } set { _token = value; } }
     }
 }
