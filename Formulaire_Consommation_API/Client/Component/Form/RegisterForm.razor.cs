@@ -77,13 +77,21 @@ namespace Formulaire_Consommation_API.Client.Component.Form
     
         protected void SubmitForm(EditContext ctx)
         {
-            Status = "Formulaire Submit";
-            // Post data to the server, etc
+            if(ctx.Validate())
+            {
+                Status = "Formulaire Submit";
+                // Post data to the server, etc
+            }
+            else
+            {
+                Status = "Erreur formulaire";
+            }
+
         }
 
         protected async Task SubmitValidForm(EditContext ctx)
         {
-            if(ctx.Validate())
+            if (ctx.Validate())
             {
                 Status = "Formulaire ValidSubmit";
                 // Post data to the server, etc

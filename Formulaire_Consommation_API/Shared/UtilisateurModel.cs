@@ -26,7 +26,7 @@ namespace Formulaire_Consommation_API.Shared
                 _email = value;
             }
         }
-        [Required]
+        [Required]       
         [DataType(DataType.Password)]
         public string Password
         {

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using System.Data.SqlClient;
 using System.Linq;
 
@@ -25,6 +26,16 @@ namespace Formulaire_Consommation_API.Server
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(c =>
+            {
+                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin());
+            });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "BlazorApi", Version = "v1" });
+            });
+
             services.AddSingleton<IFakeDataContext, FakeDataContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
@@ -44,6 +55,11 @@ namespace Formulaire_Consommation_API.Server
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseCors(options => options.AllowAnyOrigin());
+            app.UseSwagger();
+            app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BlazorApi V1"));
+
 
             app.UseHttpsRedirection();
             app.UseBlazorFrameworkFiles();

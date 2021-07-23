@@ -20,11 +20,11 @@ namespace Formulaire_Consommation_API.Client.Component.Form
         public DateTime? SomeDateTimeProperty { get; set; }
         public int SomeIntegerProperty { get; set; }
         public decimal SomeDecimalProperty { get; set; }
-        public string SomeStringProperty { get; set; }
+        public string SomeStringProperty { get; set; } = "#78AAF5";
         public string SomeMultiLineStringProperty { get; set; }
-        public SomeStateEnum SomeSelectProperty { get; set; } = SomeStateEnum.Active;
+        public SomeStateEnum SomeSelectProperty { get; set; } = SomeStateEnum.Suspended;
 
-        public Color SomeColor { get; set; } = Color.Red;
+        public Color SomeColor { get; set; } = Color.White;
     }
     public enum SomeStateEnum
     {

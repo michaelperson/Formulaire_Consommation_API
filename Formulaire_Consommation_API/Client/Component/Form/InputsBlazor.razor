@@ -7,23 +7,23 @@
     <!-- Calendrier: input type='date'. Peut être bindé sur une élément nullable
         MAIS il faut vérifier la compatibilité avec les navigateurs-->
     <InputDate @bind-Value=FormData.SomeDateTimeProperty
-               @bind-Value:format="dd/MM/yyyy"
+               @bind-Value:format="yyyy/MM/dd"
                ParsingErrorMessage="Doit être une date" /><br />
 
     <!-- Peut être lié à n'importe quel format numérique. Si la valeur ne peut pas
         être parsée -> Erreur validation.'-->
     <InputNumber @bind-Value=FormData.SomeIntegerProperty
                  ParsingErrorMessage="Doit être un entier" /><br />
-    <InputNumber @bind-Value=FormData.SomeDecimalProperty
+    <InputNumber @bind-Value=FormData.SomeDecimalProperty step="0.1"
                  ParsingErrorMessage="Doit être un décimal" /><br />
     <!-- Champs sans Type, nous pouvons donc ajouter type='password',
          type="color",...-->
     <InputText @bind-Value=FormData.SomeStringProperty /><br />
     <InputText type="password" @bind-Value=FormData.SomeStringProperty /><br />
-    <InputText type="Color" @bind-Value=FormData.SomeStringProperty /><br />
+    <InputText type="Color"    @bind-Value=FormData.SomeStringProperty /><br />
 
     <!--TextArea -->
-    <InputTextArea cols="5" @bind-Value=FormData.SomeMultiLineStringProperty /><br />
+    <InputTextArea cols="15"   @bind-Value=FormData.SomeMultiLineStringProperty /><br />
 
     <!--Select : Basé sur une énumération, la sélection se portera sur la
         valeur de la propriété Même si ce n'est pas la première'-->

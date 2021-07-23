@@ -1,11 +1,13 @@
 ﻿@inherits ListingBase
 <h3>Mes utilisateurs</h3>
+@Status
 @if (Users == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
+
     <table class="table">
         <thead>
             <tr>
@@ -16,11 +18,11 @@ else
         <tbody>
             @foreach (var u in Users)
             {
-            <tr>
-                <td>@u.Email</td>
+                <tr>
+                    <td>@u.Email</td>
 
-                <td>@u.Password</td>
-            </tr>
+                    <td>@u.Password</td>
+                </tr>
             }
         </tbody>
     </table>

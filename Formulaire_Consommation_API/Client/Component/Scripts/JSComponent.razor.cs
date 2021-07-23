@@ -15,7 +15,7 @@ namespace Formulaire_Consommation_API.Client.Component.Scripts
         protected List<string> Messages = new List<string>();
         protected async Task SendInfo()
         {
-           await jSRuntime.InvokeAsync<string>("Info", "Bonjour");
+           await jSRuntime.InvokeAsync<string>("info", "Bonjour");
         }
 
         public JSComponentBase()

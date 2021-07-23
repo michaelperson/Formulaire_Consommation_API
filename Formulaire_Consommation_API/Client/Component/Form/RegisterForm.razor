@@ -1,7 +1,7 @@
 ﻿@page "/Register"
 @inherits RegisterFormBase
 <h3>Enregistrez-vous</h3>
-@*<EditForm  Model="Utilisateur" OnSubmit="SubmitForm">
+@*<EditForm Model="Utilisateur" OnSubmit="SubmitForm">
         <DataAnnotationsValidator />
         <label for="Email">E-Mail</label>
         <InputText id="Email"
@@ -15,25 +15,25 @@
         <button type="submit" class="btn btn-primary">Save</button>
         <ValidationSummary />
     </EditForm>
-    @Status*@
-    <br />
-    <EditForm Model="Utilisateur2" OnValidSubmit="SubmitValidForm">
-        <DataAnnotationsValidator />
-        <label for="Email">E-Mail</label>
-        <InputText id="Email"
-                   @bind-Value="Utilisateur2.Email"
-                   class="form-control" />
-        <label for="Pwd">Password</label>
-        <InputText id="Pwd"
-                   type=password
-                   @bind-Value="Utilisateur2.Password"
-                   class="form-control" />
-        <button type="submit" class="btn btn-primary">Save</button>
-        <ValidationSummary />
-    </EditForm>
-    <br />
-    @Status 
-@*<EditForm Model="Utilisateur3" OnInvalidSubmit="SubmitInValidForm">
+    @Status
+    <br />*@
+<EditForm Model="Utilisateur2" OnValidSubmit="SubmitValidForm">
+    <DataAnnotationsValidator />
+    <label for="Email">E-Mail</label>
+    <InputText id="Email"
+               @bind-Value="Utilisateur2.Email"
+               class="form-control" />
+    <label for="Pwd">Password</label>
+    <InputText id="Pwd"
+               type=password
+               @bind-Value="Utilisateur2.Password"
+               class="form-control" />
+    <button type="submit" class="btn btn-primary">Save</button>
+    <ValidationSummary />
+</EditForm>
+<br />
+@Status
+@*<EditForm Model="Utilisateur3" OnValidSubmit="SubmitValidForm" OnInvalidSubmit="SubmitInValidForm">
         <DataAnnotationsValidator />
         <label for="Email">E-Mail</label>
         <InputText id="Email"
@@ -47,4 +47,6 @@
         <button type="submit" class="btn btn-primary">Save</button>
         <ValidationSummary />
     </EditForm>
-    @Status*@
+    @Status
+
+    *@

@@ -3,7 +3,7 @@ Info = function (message) {
     alert(message);
 }
 
-SendToNet = function (dotNetObject)
+SendToNet = function ()
 {
-    dotNetObject.invokeMethodAsync('AjouterInfo', "Info from js");
+    Window.dotNetObject.invokeMethodAsync('AjouterInfo', "Info from js");
 }

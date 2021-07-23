@@ -21,8 +21,7 @@ namespace Formulaire_Consommation_API.Client
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            builder.Services.AddScoped<ILocalStorageService, LocalStorageService>();
-            builder.Services.AddSingleton<IFakeDataContext,FakeDataContext>();
+            builder.Services.AddScoped<ILocalStorageService, LocalStorageService>(); 
             await builder.Build().RunAsync();
         }
     }
